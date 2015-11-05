@@ -10,7 +10,11 @@
 	</header>
 	<section>
 		<article>
-		    {{ response }}
+			<ul>
+		    {% for offers in response.offers %}
+		    	<li>{{ offers.title|lower}} : {{ offers.applications }}</li>
+			{% endfor %}
+			</ul>
 		</article>
 	</section>
 </body>

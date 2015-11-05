@@ -14,4 +14,4 @@ def test(request):
     
     response = requests.request("GET", url, headers=headers)
 
-    return render(request, 'index.html', {'response': response.text})
+    return render(request, 'index.html', {'response': response.json()})
