@@ -1,23 +1,31 @@
-{% load staticfiles %}
-<!DOCTYPE HTML>
-<html>
-<head>
-	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-	<title>Jobstats</title>
-	<link rel="stylesheet" type="text/css" href="{% static "dashboard/css/style.css" %}">
-</head>
-<body>
-	<header>
-	    <h1>Test</h1>
-	</header>
-	<section>
-		<article>
-			<ul>
-		    {% for offers in response.offers %}
-		    	<li>{{ offers.title|lower}} : {{ offers.applications }}</li>
-			{% endfor %}
-			</ul>
-		</article>
-	</section>
-</body>
-</html>
+{% extends "pages/blank.html" %}
+{% block content %}
+<h1 class="page-header">Infojobs</h1>
+
+<div class="panel-heading">
+    Últimas ofertas de trabajo
+</div>
+<!-- /.panel-heading -->
+<div class="panel-body">
+    <div class="dataTable_wrapper">
+        <table class="table table-striped table-bordered table-hover" id="dataTables-example">
+            <thead>
+                <tr>
+                    <th>Title</th>
+                    <th>applications</th>
+                </tr>
+            </thead>
+            <tbody>
+            	{% for offers in response.offers %}
+            	<tr class="gradeX">
+					<td>{{ offers.title|lower}}</td>
+					<td>{{ offers.applications }}</td>
+				</tr>
+				{% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+<!-- /.panel-body -->
+
+{% endblock %}

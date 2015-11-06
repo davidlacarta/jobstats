@@ -8,3 +8,6 @@ Config Vars `DJANGO_SETTINGS_MODULE`:`jobstats.settings.live`
 
 ## Demo
 https://jobstats.herokuapp.com
+
+## Dashboard theme
+http://startbootstrap.com/template-overviews/sb-admin-2/
