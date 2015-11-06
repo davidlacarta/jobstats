@@ -46,10 +46,13 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
+                {% block title %}
                 <a class="navbar-brand" href="index.html">SB Admin v2.0</a>
+                {% endblock %}
             </div>
             <!-- /.navbar-header -->
-
+            
+            {% block navbar-top %}
             <ul class="nav navbar-top-links navbar-right">
                 <li class="dropdown">
                     <a class="dropdown-toggle" data-toggle="dropdown" href="#">
@@ -259,7 +262,9 @@
                 <!-- /.dropdown -->
             </ul>
             <!-- /.navbar-top-links -->
+            {% endblock %}
 
+            {% block navbar-sidebar %}
             <div class="navbar-default sidebar" role="navigation">
                 <div class="sidebar-nav navbar-collapse">
                     <ul class="nav" id="side-menu">
@@ -366,6 +371,7 @@
                 <!-- /.sidebar-collapse -->
             </div>
             <!-- /.navbar-static-side -->
+            {% endblock %}
         </nav>
 
         <!-- Page Content -->

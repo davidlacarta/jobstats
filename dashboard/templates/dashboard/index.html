@@ -1,10 +1,70 @@
 {% extends "pages/blank.html" %}
+{% block title %}
+<a class="navbar-brand" href="index.html">StatsJobs</a>
+{% endblock %}
+
+{% block navbar-sidebar %}
+{% endblock %}
+
+{% block navbar-top %}
+{% endblock %}
+
 {% block content %}
 <h1 class="page-header">Infojobs</h1>
 
 <div class="panel-heading">
     Últimas ofertas de trabajo
 </div>
+
+<div class="row">
+    <div class="col-lg-4 col-md-6">
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+                <div class="row">
+                    <div class="col-xs-3">
+                        <i class="fa fa-briefcase fa-5x"></i>
+                    </div>
+                    <div class="col-xs-9 text-right">
+                        <div class="huge">{{ response.totalResults }}</div>
+                        <div>Ofertas</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-4 col-md-6">
+        <div class="panel panel-green">
+            <div class="panel-heading">
+                <div class="row">
+                    <div class="col-xs-3">
+                        <i class="fa fa-folder fa-5x"></i>
+                    </div>
+                    <div class="col-xs-9 text-right">
+                        <div class="huge">{{ response.currentResults }}</div>
+                        <div>ofertas por página</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-4 col-md-6">
+        <div class="panel panel-yellow">
+            <div class="panel-heading">
+                <div class="row">
+                    <div class="col-xs-3">
+                        <i class="fa fa-folder-open fa-5x"></i>
+                    </div>
+                    <div class="col-xs-9 text-right">
+                        <div class="huge">{{ response.totalPages }}</div>
+                        <div>páginas</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- /.row -->
+
 <!-- /.panel-heading -->
 <div class="panel-body">
     <div class="dataTable_wrapper">
