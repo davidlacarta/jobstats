@@ -2,7 +2,7 @@ from celery import Celery
 import requests
 from .models import Offer
 
-app = Celery('collector', broker='redis://127.0.0.1:6379/0')
+app = Celery('collector')
 
 @app.task
 def test():
