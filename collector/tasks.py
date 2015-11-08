@@ -23,6 +23,9 @@ def test():
     offer = Offer(poblation=o['city'], 
                     description=o['title'],
                     aplications=int(o['applications']),
-                    salary_max=int(salaryMax if salaryMax else 0),
-                    salary_min=int(salaryMin if salaryMin else 0))
+                    salary_max=sanity_int(salaryMax),
+                    salary_min=sanity_int(salaryMin))
     offer.save()
+    
+def sanity_int(number):
+    return int(number.split(' ')[0].replace('.','') if number else 0) 
