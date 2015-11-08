@@ -25,7 +25,7 @@
                         <i class="fa fa-briefcase fa-5x"></i>
                     </div>
                     <div class="col-xs-9 text-right">
-                        <div class="huge">{{ response.totalResults }}</div>
+                        <div class="huge">1</div>
                         <div>Ofertas</div>
                     </div>
                 </div>
@@ -40,7 +40,7 @@
                         <i class="fa fa-folder fa-5x"></i>
                     </div>
                     <div class="col-xs-9 text-right">
-                        <div class="huge">{{ response.currentResults }}</div>
+                        <div class="huge">1</div>
                         <div>ofertas por página</div>
                     </div>
                 </div>
@@ -55,7 +55,7 @@
                         <i class="fa fa-folder-open fa-5x"></i>
                     </div>
                     <div class="col-xs-9 text-right">
-                        <div class="huge">{{ response.totalPages }}</div>
+                        <div class="huge">1</div>
                         <div>páginas</div>
                     </div>
                 </div>
@@ -79,13 +79,13 @@
                 </tr>
             </thead>
             <tbody>
-            	{% for offers in response.offers %}
+            	{% for offer in offers %}
             	<tr class="gradeX">
-            		<td>{{ offers.city }}</td>
-					<td>{{ offers.title|lower}}</td>
-					<td>{{ offers.salaryMin.value }}</td>
-					<td>{{ offers.salaryMax.value }}</td>
-					<td>{{ offers.applications }}</td>
+            		<td>{{ offer.poblation }}</td>
+					<td>{{ offer.description|lower}}</td>
+					<td>{{ offer.salary_min }}</td>
+					<td>{{ offer.salary_max }}</td>
+					<td>{{ offer.aplications }}</td>
 				</tr>
 				{% endfor %}
             </tbody>
