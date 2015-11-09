@@ -125,6 +125,8 @@ CELERY_TASK_SERIALIZER = 'json'
 CELERY_RESULT_SERIALIZER = 'json'
 
 try:
-   from settings_local import *
-except ImportError, e:
+    LOCAL = os.environ['LOCAL']
+    if 'True' == LOCAL:
+        from settings_local import *
+except Exception, e:
    pass

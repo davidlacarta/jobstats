@@ -15,6 +15,7 @@ Repository linked with heroku and with autodeploy
 `export CLIENT_ID="client id infojobs"`
 `export CLIENT_SECRET="client secret infojobs"`
 `export REDIS_URL="redis://127.0.0.1:6379/0"`
+`export LOCAL="True"`
 `source ~/.bashrc`
 
 ## Demo
