@@ -83,13 +83,9 @@ WSGI_APPLICATION = 'jobstats.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/1.8/ref/settings/#databases
+DATABASES = {}
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-    }
-}
+DATABASES['default'] =  dj_database_url.config()
 
 
 # Internationalization
@@ -120,7 +116,15 @@ STATICFILES_DIRS = (
 CELERYBEAT_SCHEDULER = 'djcelery.schedulers.DatabaseScheduler'
 CELERY_RESULT_BACKEND = 'djcelery.backends.database:DatabaseBackend'
 BROKER_TRANSPORT = 'redis'
-BROKER_URL = 'redis://127.0.0.1:6379/0'
+try:
+    BROKER_URL = os.environ['REDIS_URL']
+except Exception, e:
+    pass
 CELERY_ACCEPT_CONTENT = ['json']
 CELERY_TASK_SERIALIZER = 'json'
 CELERY_RESULT_SERIALIZER = 'json'
+
+try:
+   from settings_local import *
+except ImportError, e:
+   pass

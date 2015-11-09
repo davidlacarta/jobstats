@@ -40,8 +40,8 @@
                         <i class="fa fa-folder fa-5x"></i>
                     </div>
                     <div class="col-xs-9 text-right">
-                        <div class="huge">1</div>
-                        <div>ofertas por página</div>
+                        <div class="huge">{{ offers|length }}</div>
+                        <div>ofertas mapeadas</div>
                     </div>
                 </div>
             </div>
@@ -85,7 +85,7 @@
 					<td>{{ offer.description|lower}}</td>
 					<td>{{ offer.salary_min }}</td>
 					<td>{{ offer.salary_max }}</td>
-					<td>{{ offer.aplications }}</td>
+					<td>{{ offer.applications }}</td>
 				</tr>
 				{% endfor %}
             </tbody>

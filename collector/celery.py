@@ -5,7 +5,7 @@ from celery import Celery
 from django.conf import settings
 
 # set the default Django settings module for the 'celery' program.
-os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'jobstats.settings.development')
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'jobstats.settings.settings')
 
 app = Celery('collector')
 
