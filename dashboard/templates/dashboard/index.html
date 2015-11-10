@@ -1,4 +1,10 @@
 {% extends "pages/blank.html" %}
+{% load staticfiles %}
+{% block stylesheet %}
+<script src="{% static "angularapp/js/angular.min.js" %}"></script>
+<script src="{% static "angularapp/js/app.js" %}"></script>
+{% endblock %}
+
 {% block title %}
 <a class="navbar-brand" href="index.html">StatsJobs</a>
 {% endblock %}
@@ -66,7 +72,28 @@
 <!-- /.row -->
 
 <!-- /.panel-heading -->
-<div class="panel-body">
+<div class="panel-body" ng-app="instantsearch">
+    <div ng-controller="someCtrl">
+        
+        <h3 class="headName">Ajax Live search using AngularJs</h3>
+
+        <input type="text" class="form-control field span12" id="objctf" rows="4" placeholder="Search" ng-model="keywords" ng-change="search()" />
+        
+        <div class="dataTable_wrapper">
+            <table class="table table-striped table-bordered table-hover" id="dataTables-example">
+                <tbody>
+                	<tr ng-model="items" class="gradeX" ng-repeat="item in items">
+                		<td>[[ item.fields.poblation ]]</td>
+    					<td>[[ item.fields.description ]]</td>
+    					<td>[[ item.fields.salary_min ]]</td>
+    					<td>[[ item.fields.salary_max ]]</td>
+    					<td>[[ item.fields.applications ]]</td>
+    				</tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
     <div class="dataTable_wrapper">
         <table class="table table-striped table-bordered table-hover" id="dataTables-example">
             <thead>
