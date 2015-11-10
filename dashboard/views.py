@@ -15,12 +15,7 @@ def angularapp(request):
         search = request.GET['search']
         data = []
         if search:
-            offers = Offer.objects.filter(description__iexact=search)
-            try:
-                if os.environ['LOCAL'] == 'True':
-                    offers = Offer.objects.filter(description__contains=search)
-            except Exception, e:
-                pass
+            offers = Offer.objects.filter(description__iregex=r'{}'.format(search))
             data = serializers.serialize("json", offers)
         return JsonResponse({'search_offers': data})
     else:
