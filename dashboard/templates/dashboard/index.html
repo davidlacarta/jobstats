@@ -1,124 +1,36 @@
-{% extends "pages/blank.html" %}
+{% extends "base.html" %}
 {% load staticfiles %}
-{% block stylesheet %}
-<script src="{% static "angularapp/js/angular.min.js" %}"></script>
-<script src="{% static "angularapp/js/app.js" %}"></script>
-{% endblock %}
-
-{% block title %}
-<a class="navbar-brand" href="index.html">StatsJobs</a>
-{% endblock %}
-
-{% block navbar-sidebar %}
-{% endblock %}
-
-{% block navbar-top %}
-{% endblock %}
 
 {% block content %}
-<h1 class="page-header">Infojobs</h1>
-
-<div class="panel-heading">
-    Últimas ofertas de trabajo
-</div>
-
-<div class="row">
-    <div class="col-lg-4 col-md-6">
-        <div class="panel panel-primary">
-            <div class="panel-heading">
-                <div class="row">
-                    <div class="col-xs-3">
-                        <i class="fa fa-briefcase fa-5x"></i>
-                    </div>
-                    <div class="col-xs-9 text-right">
-                        <div class="huge">1</div>
-                        <div>Ofertas</div>
-                    </div>
-                </div>
-            </div>
-        </div>
+<div class="container theme-showcase" role="main">
+  <div class="page-header">
+    <h1>Offers</h1>
+  </div>
+  <div class="row">
+    <div class="col-md-12">
+      <table class="table table-striped">
+        <thead>
+            <tr>
+            	<th>City</th>
+                <th>Title</th>
+                <th>Salary min</th>
+                <th>Salary max</th>
+                <th>applications</th>
+            </tr>
+        </thead>
+        <tbody>
+    	{% for offer in offers %}
+        	<tr>
+        		<td>{{ offer.city }}</td>
+				<td>{{ offer.title|lower}}</td>
+				<td>{{ offer.salary_min }}</td>
+				<td>{{ offer.salary_max }}</td>
+				<td>{{ offer.applications }}</td>
+			</tr>
+		{% endfor %}
+        </tbody>
+      </table>
     </div>
-    <div class="col-lg-4 col-md-6">
-        <div class="panel panel-green">
-            <div class="panel-heading">
-                <div class="row">
-                    <div class="col-xs-3">
-                        <i class="fa fa-folder fa-5x"></i>
-                    </div>
-                    <div class="col-xs-9 text-right">
-                        <div class="huge">{{ offers|length }}</div>
-                        <div>ofertas mapeadas</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="col-lg-4 col-md-6">
-        <div class="panel panel-yellow">
-            <div class="panel-heading">
-                <div class="row">
-                    <div class="col-xs-3">
-                        <i class="fa fa-folder-open fa-5x"></i>
-                    </div>
-                    <div class="col-xs-9 text-right">
-                        <div class="huge">1</div>
-                        <div>páginas</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-<!-- /.row -->
-
-<!-- /.panel-heading -->
-<div class="panel-body" ng-app="instantsearch">
-    <div ng-controller="someCtrl">
-        
-        <h3 class="headName">Ajax Live search using AngularJs</h3>
-
-        <input type="text" class="form-control field span12" id="objctf" rows="4" placeholder="Search" ng-model="keywords" ng-change="search()" />
-        
-        <div class="dataTable_wrapper">
-            <table class="table table-striped table-bordered table-hover" id="dataTables-example">
-                <tbody>
-                	<tr ng-model="items" class="gradeX" ng-repeat="item in items">
-                		<td>[[ item.fields.poblation ]]</td>
-    					<td>[[ item.fields.description ]]</td>
-    					<td>[[ item.fields.salary_min ]]</td>
-    					<td>[[ item.fields.salary_max ]]</td>
-    					<td>[[ item.fields.applications ]]</td>
-    				</tr>
-                </tbody>
-            </table>
-        </div>
-    </div>
-
-    <div class="dataTable_wrapper">
-        <table class="table table-striped table-bordered table-hover" id="dataTables-example">
-            <thead>
-                <tr>
-                	<th>City</th>
-                    <th>Title</th>
-                    <th>Salary min</th>
-                    <th>Salary max</th>
-                    <th>applications</th>
-                </tr>
-            </thead>
-            <tbody>
-            	{% for offer in offers %}
-            	<tr class="gradeX">
-            		<td>{{ offer.poblation }}</td>
-					<td>{{ offer.description|lower}}</td>
-					<td>{{ offer.salary_min }}</td>
-					<td>{{ offer.salary_max }}</td>
-					<td>{{ offer.applications }}</td>
-				</tr>
-				{% endfor %}
-            </tbody>
-        </table>
-    </div>
-</div>
-<!-- /.panel-body -->
-
+  </div>
+</div> <!-- /container -->
 {% endblock %}

@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+
+{% block head %}
+<script src="{% static "angularapp/js/angular.min.js" %}"></script>
+<script src="{% static "angularapp/js/app.js" %}"></script>
+{% endblock %}
+
+{% block navigation %}
+<li><a href="/">Home</a></li>
+<li class="active"><a href="/search">Search</a></li>
+{% endblock %}
+
+{% block content %}
+<div class="container theme-showcase" role="main" ng-app="instantsearch">
+  <div class="page-header">
+    <h1>Search</h1>
+  </div>
+  <div class="row" ng-controller="someCtrl">
+    <div class="col-md-12">
+        
+        <input type="text" class="form-control field span12" placeholder="Search" ng-model="keywords" ng-change="search()" />
+        
+        <div class="dataTable_wrapper">
+            <table class="table table-striped" id="dataTables-example">
+                <thead>
+                    <tr>
+                    	<th>City</th>
+                        <th>Title</th>
+                        <th>Salary min</th>
+                        <th>Salary max</th>
+                        <th>applications</th>
+                    </tr>
+                </thead>
+                <tbody>
+                	<tr ng-model="items" ng-repeat="item in items">
+                		<td>[[ item.fields.city ]]</td>
+    					<td>[[ item.fields.title ]]</td>
+    					<td>[[ item.fields.salary_min ]]</td>
+    					<td>[[ item.fields.salary_max ]]</td>
+    					<td>[[ item.fields.applications ]]</td>
+    				</tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+  </div>
+</div> <!-- /container -->
+{% endblock %}
