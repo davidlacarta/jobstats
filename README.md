@@ -1,13 +1,23 @@
 # jobstats
-Search jobs with infojobs api
+
+Search jobs with infojobs api. Job offers are mapped database from api infojobs with celery task and managed from the Django admin panel. Searches are made against the database. Repository linked with heroku and with autodeploy.
+
+## Technology Stack
+
+- Django
+- SQLite / PostgreSQL
+- AngularJS
+- Celery
+- Redis
+- Heroku
+- Cloud 9
 
 ## Demo
+
 https://jobstats.herokuapp.com
 
-## Heroku
-Repository linked with heroku and with autodeploy
-
 ## Config Vars HEROKU
+
 ```
 DJANGO_SETTINGS_MODULE : "jobstats.settings.settings"
 REDIS_URL : redis addon heroku autoconfig
@@ -16,6 +26,7 @@ CLIENT_SECRET : client secret infojobs
 ```
 
 ## Config Vars local
+
 ```
 vi ~/.bashrc
 export CLIENT_ID="client id infojobs"
@@ -26,6 +37,8 @@ source ~/.bashrc
 ```
 
 ## Celery
+
+You can run the beat and worker of celery together or separately
 
 - Celery Beat : `celery -A collector beat -S djcelery.schedulers.DatabaseScheduler`
 - Celery Worker : `celery -A collector worker -l info`
