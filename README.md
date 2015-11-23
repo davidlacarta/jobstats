@@ -1,5 +1,7 @@
 # jobstats
 
+[![Join the chat at https://gitter.im/davidlacarta/jobstats](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/davidlacarta/jobstats?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+
 Search jobs with infojobs api. Job offers are mapped database from api infojobs with celery task and managed from the Django admin panel. Searches are made against the database. Repository linked with heroku and with autodeploy.
 
 ## Technology Stack
