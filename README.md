@@ -1,5 +1,7 @@
 # jobstats
 
+[![Build Status](https://travis-ci.org/davidlacarta/jobstats.svg?branch=master)](https://travis-ci.org/davidlacarta/jobstats)
+[![Coverage Status](https://coveralls.io/repos/davidlacarta/jobstats/badge.svg?branch=master&service=github)](https://coveralls.io/github/davidlacarta/jobstats?branch=master)
 [![Join the chat at https://gitter.im/davidlacarta/jobstats](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/davidlacarta/jobstats?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
 Search jobs with infojobs api. Job offers are mapped database from api infojobs with celery task and managed from the Django admin panel. Searches are made against the database. Repository linked with heroku and with autodeploy.
@@ -49,4 +51,3 @@ You can run the beat and worker of celery together or separately
 ## Redis
 
 - `redis-server`
-
