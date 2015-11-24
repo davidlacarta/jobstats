@@ -93,7 +93,7 @@ DATABASES['default'] =  dj_database_url.config()
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Europe/Madrid'
 
 USE_I18N = True
 
@@ -115,6 +115,7 @@ STATICFILES_DIRS = (
 # store schedule in the DB:
 CELERYBEAT_SCHEDULER = 'djcelery.schedulers.DatabaseScheduler'
 CELERY_RESULT_BACKEND = 'djcelery.backends.database:DatabaseBackend'
+CELERY_TIMEZONE = 'Europe/Madrid'
 BROKER_TRANSPORT = 'redis'
 try:
     BROKER_URL = os.environ['REDIS_URL']
