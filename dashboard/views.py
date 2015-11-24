@@ -6,7 +6,7 @@ from django.core import serializers
 
 MAX_RESULTS = 20
 
-def test(request):
+def index(request):
     offers = Offer.objects.all()
     return render(request, 'index.html', {'offers': offers[:MAX_RESULTS]})
     
