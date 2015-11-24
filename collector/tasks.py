@@ -10,6 +10,11 @@ app = Celery('collector')
 
 MAX_RESULTS = 1000
 
+HOUR = 1920
+MONTH = 12
+YEAR = 1
+SALARY_PERIOD = {1: HOUR, 2: MONTH, 3: YEAR}
+
 @app.task
 def mapping_infojobs():
     URL = 'http://api.infojobs.net/api/1/offer'
@@ -33,6 +38,7 @@ def save_offer(offer):
     Save offer in database
     """
     offer_id = offer.get('id')
+    salary_period = offer.get('salaryPeriod').get('id')
     if offer_id:
         title = offer.get('title','')
         description = ''
@@ -58,18 +64,20 @@ def save_offer(offer):
             city = city,
             fetch_date = timezone.now(),
             publish_date = publish_date,
-            salary_max = parse_salary(salary_max),
-            salary_min = parse_salary(salary_min),
+            salary_max = parse_salary(salary_max, salary_period),
+            salary_min = parse_salary(salary_min, salary_period),
             applications = sanity_int(applications),
             vacancies = vacancies,
             experience = sanity_int(experience))
         offer.save()
 
 
-def parse_salary(salary):
+def parse_salary(salary, salary_period):
     out = 0
     try:
         out = int(salary.split(' ')[0].replace('.',''))
+        if salary_period in SALARY_PERIOD:
+            out *= SALARY_PERIOD[salary_period]
     except Exception:
         pass
     return out
