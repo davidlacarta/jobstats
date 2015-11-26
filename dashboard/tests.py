@@ -2,6 +2,9 @@ from django.test import TestCase
 from django.test.client import Client
 from django.core.urlresolvers import reverse
 
+# Testing shell django
+# $ from django.test import utils
+# $ utils.setup_test_environment()
 class DashBoardTestcase(TestCase):
     
     def setUp(self):

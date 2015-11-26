@@ -6,3 +6,5 @@ include
 .DS_Store
 .pyc
 wsgi.py
+db.sqlite3
+dump.rdb
