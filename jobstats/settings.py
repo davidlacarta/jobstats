@@ -17,7 +17,8 @@ import djcelery
 
 djcelery.setup_loader()
 
-BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+JOBSTATS = os.path.dirname(os.path.abspath(__file__))
+BASE_DIR = os.path.dirname(JOBSTATS)
 
 
 # Quick-start development settings - unsuitable for production
@@ -109,7 +110,7 @@ STATIC_URL = '/static/'
 STATIC_ROOT = 'staticfiles'
 
 STATICFILES_DIRS = (
-    os.path.join(BASE_DIR, 'static'),
+    os.path.join(JOBSTATS, 'static'),
 )
 
 # store schedule in the DB:
