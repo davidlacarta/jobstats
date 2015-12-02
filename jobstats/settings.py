@@ -28,9 +28,11 @@ BASE_DIR = os.path.dirname(JOBSTATS)
 SECRET_KEY = 'v1us&n$3p2itiqxd$)s^r(-ea=!n#%bqz8br_mebnph6vb#5tv'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
+
+# Honor the 'X-Forwarded-Proto' header for request.is_secure()
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 
 
@@ -118,17 +120,10 @@ CELERYBEAT_SCHEDULER = 'djcelery.schedulers.DatabaseScheduler'
 CELERY_RESULT_BACKEND = 'djcelery.backends.database:DatabaseBackend'
 CELERY_TIMEZONE = 'Europe/Madrid'
 BROKER_TRANSPORT = 'redis'
-try:
-    BROKER_URL = os.environ['REDIS_URL']
-except Exception, e:
-    pass
+BROKER_URL = os.environ.get('REDIS_URL')
 CELERY_ACCEPT_CONTENT = ['json']
 CELERY_TASK_SERIALIZER = 'json'
 CELERY_RESULT_SERIALIZER = 'json'
 
-try:
-    LOCAL = os.environ['LOCAL']
-    if 'True' == LOCAL:
-        from settings_local import *
-except Exception, e:
-   pass
+if os.environ.get('LOCAL'):
+    from settings_local import *
