@@ -23,7 +23,7 @@ https://jobstats.herokuapp.com
 ## Config Vars HEROKU
 
 ```
-DJANGO_SETTINGS_MODULE : "jobstats.settings.settings"
+DJANGO_SETTINGS_MODULE : "jobstats.settings"
 REDIS_URL : redis addon heroku autoconfig
 CLIENT_ID : client id infojobs
 CLIENT_SECRET : client secret infojobs
