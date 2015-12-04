@@ -1,73 +1,112 @@
-<!DOCTYPE html>
 {% load staticfiles %}
 
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <meta name="description" content="">
-    <meta name="author" content="">
+<!DOCTYPE html>
+<!--[if IE 9 ]><html class="ie9"><![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Jobstats</title>
 
-    {% block title %}
-    <title>Jobstats</title>
-    {% endblock %}
+        <!-- Vendor CSS -->
+        <link href="{% static "dashboard/material-design/css/fullcalendar.min.css" %}" rel="stylesheet">
+        <link href="{% static "dashboard/material-design/css/animate.min.css" %}" rel="stylesheet">
+        <link href="{% static "dashboard/material-design/css/sweet-alert.css" %}" rel="stylesheet">
+        <link href="{% static "dashboard/material-design/css/material-design-iconic-font.min.css" %}" rel="stylesheet">
+            
+        <!-- CSS -->
+        <link href="{% static "dashboard/material-design/css/app.min.1.css" %}" rel="stylesheet">
+        <link href="{% static "dashboard/material-design/css/app.min.2.css" %}" rel="stylesheet">
+        <link href="{% static "dashboard/material-design/css/materialPreloader.css" %}" rel="stylesheet">
+        
+        {% block head %}{% endblock %}
 
-    <!-- Bootstrap core CSS -->
-    <link href="{% static "dashboard/dist/css/bootstrap.min.css" %}" rel="stylesheet">
-    <!-- Bootstrap theme -->
-    <link href="{% static "dashboard/dist/css/bootstrap-theme.min.css" %}" rel="stylesheet">
-
-    <!-- Custom styles for this template -->
-    <link href="{% static "dashboard/css/theme.css" %}" rel="stylesheet">
-
-    <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
-    <!--[if lt IE 9]><script src="{% static "dashboard/assets/js/ie8-responsive-file-warning.js" %}"></script><![endif]-->
-    <script src="{% static "dashboard/assets/js/ie-emulation-modes-warning.js" %}"></script>
-
-    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-    <!--[if lt IE 9]>
-      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-    <![endif]-->
-    {% block head %}
-    {% endblock %}
-  </head>
-
-  <body role="document">
-    <!-- Fixed navbar -->
-    <nav class="navbar navbar-inverse navbar-fixed-top">
-      <div class="container">
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <a class="navbar-brand" href="/">Jobstats</a>
-        </div>
-        <div id="navbar" class="navbar-collapse collapse">
-          <ul class="nav navbar-nav">
-            {% block navigation %}
-            <li class="active"><a href="/">Home</a></li>
-            <li><a href="/search">Search</a></li>
-            {% endblock %}
-          </ul>
-        </div><!--/.nav-collapse -->
-      </div>
-    </nav>
-    {% block content %}
-    {% endblock %}
-
-    <!-- Bootstrap core JavaScript
-    ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
-    <script src="{% static "dashboard/js/jquery.min.js" %}"></script>
-    <script src="{% static "dashboard/dist/js/bootstrap.min.js" %}"></script>
-    <script src="{% static "dashboard/assets/js/docs.min.js" %}"></script>
-    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-    <script src="{% static "dashboard/assets/js/ie10-viewport-bug-workaround.js" %}"></script>
-  </body>
+    </head>
+    <body>
+        <section id="main">
+            {% block content %}{% endblock %}
+        </section>
+        
+        <footer id="footer">
+            Copyright &copy; 2015 Jobstats
+            
+            <ul class="f-menu">
+                <li><a href="/">Home</a></li>
+            </ul>
+        </footer>
+        
+        <!-- Older IE warning message -->
+        <!--[if lt IE 9]>
+            <div class="ie-warning">
+                <h1 class="c-white">Warning!!</h1>
+                <p>You are using an outdated version of Internet Explorer, please upgrade <br/>to any of the following web browsers to access this website.</p>
+                <div class="iew-container">
+                    <ul class="iew-download">
+                        <li>
+                            <a href="http://www.google.com/chrome/">
+                                <img src="img/browsers/chrome.png" alt="">
+                                <div>Chrome</div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://www.mozilla.org/en-US/firefox/new/">
+                                <img src="img/browsers/firefox.png" alt="">
+                                <div>Firefox</div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="http://www.opera.com">
+                                <img src="img/browsers/opera.png" alt="">
+                                <div>Opera</div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://www.apple.com/safari/">
+                                <img src="img/browsers/safari.png" alt="">
+                                <div>Safari</div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="http://windows.microsoft.com/en-us/internet-explorer/download-ie">
+                                <img src="img/browsers/ie.png" alt="">
+                                <div>IE (New)</div>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <p>Sorry for the inconvenience!</p>
+            </div>   
+        <![endif]-->
+        
+        <!-- Javascript Libraries -->
+        <script src="{% static "dashboard/material-design/js/jquery.min.js" %}"></script>
+        <script src="{% static "dashboard/material-design/js/bootstrap.min.js" %}"></script>
+        
+        <script src="{% static "dashboard/material-design/js/jquery.flot.js" %}"></script>
+        <script src="{% static "dashboard/material-design/js/jquery.flot.resize.js" %}"></script>
+        <script src="{% static "dashboard/material-design/js/curvedLines.js" %}"></script>
+        <script src="{% static "dashboard/material-design/js/jquery.sparkline.min.js" %}"></script>
+        <script src="{% static "dashboard/material-design/js/jquery.easypiechart.min.js" %}"></script>
+        
+        <script src="{% static "dashboard/material-design/js/moment.min.js" %}"></script>
+        <script src="{% static "dashboard/material-design/js/fullcalendar.min.js" %}"></script>
+        <script src="{% static "dashboard/material-design/js/jquery.simpleWeather.min.js" %}"></script>
+        <script src="{% static "dashboard/material-design/js/jquery.nicescroll.min.js" %}"></script>
+        <script src="{% static "dashboard/material-design/js/waves.min.js" %}"></script>
+        <script src="{% static "dashboard/material-design/js/bootstrap-growl.min.js" %}"></script>
+        <script src="{% static "dashboard/material-design/js/sweet-alert.min.js" %}"></script>
+        
+        <!-- Placeholder for IE9 -->
+        <!--[if IE 9 ]>
+            <script src="{% static "dashboard/material-design/js/jquery.placeholder.min.js" %}"></script>
+        <![endif]-->
+        
+        <script src="{% static "dashboard/material-design/js/curved-line-chart.js" %}"></script>
+        <script src="{% static "dashboard/material-design/js/line-chart.js" %}"></script>
+        <script src="{% static "dashboard/material-design/js/charts.js" %}"></script>
+        
+        <script src="{% static "dashboard/material-design/js/functions.js" %}"></script>
+        <!--<script src="{% static "dashboard/material-design/js/demo.js" %}"></script>-->
+        <script src="{% static "dashboard/material-design/js/materialPreloader.js" %}"></script>
+    </body>
 </html>

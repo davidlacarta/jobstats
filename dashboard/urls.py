@@ -1,8 +1,7 @@
 from django.conf.urls import url
-from .views import index, angularapp, search
+import views
 
 urlpatterns = [
-    url(r'^$', index, name='dashboard-index'),
-    url(r'^offers/', angularapp, name='dashboard-angularapp'),
-    url(r'^search/', search, name='dashboard-search'),
+    url(r'^$', views.index, name='dashboard-index'),
+    url(r'^search/', views.search, name='dashboard-search'),
 ]

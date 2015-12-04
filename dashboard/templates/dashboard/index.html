@@ -1,36 +1,104 @@
 {% extends "base.html" %}
+
 {% load staticfiles %}
 
+{% block head %}
+<script src="{% static "angularapp/js/angular.min.js" %}"></script>
+<script src="{% static "angularapp/js/app.js" %}"></script>
+{% endblock %}
+
 {% block content %}
-<div class="container theme-showcase" role="main">
-  <div class="page-header">
-    <h1>Offers</h1>
-  </div>
-  <div class="row">
-    <div class="col-md-12">
-      <table class="table table-striped">
-        <thead>
-            <tr>
-            	<th>City</th>
-                <th>Title</th>
-                <th>Salary min</th>
-                <th>Salary max</th>
-                <th>applications</th>
-            </tr>
-        </thead>
-        <tbody>
-    	{% for offer in offers %}
-        	<tr>
-        		<td>{{ offer.city }}</td>
-				<td>{{ offer.title|lower}}</td>
-				<td>{{ offer.salary_min }}</td>
-				<td>{{ offer.salary_max }}</td>
-				<td>{{ offer.applications }}</td>
-			</tr>
-		{% endfor %}
-        </tbody>
-      </table>
+<section id="content" ng-app="instantsearch" ng-controller="someCtrl">
+    <div class="container">
+        <div class="block-header">
+            <h2>Jobstats</h2>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <div class="search">
+                    <div class="fg-line">
+                        <input type="text" class="form-control" placeholder="Search..." ng-model="keywords" my-enter="search()">
+                    </div>
+                </div>
+            </div>
+            <div id="error" class="card-header" style='display:none;' >
+                No results for "[[ keywords ]]"
+            </div>
+            <div id="items" class="card-body m-t-0" style='display:none;'>
+                <table class="table table-inner table-vmiddle">
+                    <thead>
+                        <tr>
+                        	<th>City</th>
+                            <th>Title</th>
+                            <th>Salary max</th>
+                            <th>applications</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    	<tr ng-model="items" ng-repeat="item in items">
+                    		<td>[[ item.fields.city ]]</td>
+        					<td class="f-500 c-cyan">[[ item.fields.title | uppercase ]]</td>
+        					<td>[[ item.fields.salary_max ]]</td>
+        					<td class="f-500 c-cyan">[[ item.fields.applications ]]</td>
+        				</tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        
+        <div class="mini-charts" ng-model="summary" ng-if="summary">
+            <div class="row">
+                <div class="col-sm-6 col-md-3">
+                    <div class="mini-charts-item bgm-cyan">
+                        <div class="clearfix">
+                            <div class="chart stats-bar"></div>
+                            <div class="count">
+                                <small>Offers</small>
+                                <h2>[[ summary.count | number:0 ]]</h2>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-sm-6 col-md-3">
+                    <div class="mini-charts-item bgm-lightgreen">
+                        <div class="clearfix">
+                            <div class="chart stats-bar-2"></div>
+                            <div class="count">
+                                <small>Salary max</small>
+                                <h2>[[ summary.max | number:0 ]]</h2>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-sm-6 col-md-3">
+                    <div class="mini-charts-item bgm-orange">
+                        <div class="clearfix">
+                            <div class="chart stats-line"></div>
+                            <div class="count">
+                                <small>Salary averge</small>
+                                <h2>[[ summary.average | number:0 ]]</h2>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-sm-6 col-md-3">
+                    <div class="mini-charts-item bgm-bluegray">
+                        <div class="clearfix">
+                            <div class="chart stats-line-2"></div>
+                            <div class="count">
+                                <small>City more offers</small>
+                                <h2>[[ summary.city ]]</h2>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
     </div>
-  </div>
-</div> <!-- /container -->
+</section>
 {% endblock %}
