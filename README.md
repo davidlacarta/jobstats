@@ -20,6 +20,8 @@ Search jobs with infojobs api. Job offers are mapped database from api infojobs 
 
 https://jobstats.herokuapp.com
 
+[![Screen Preview](./preview.png)](./preview.png)
+
 ## Config Vars HEROKU
 
 ```
