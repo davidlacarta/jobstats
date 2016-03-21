@@ -1,0 +1,193 @@
+[
+    {
+        "fields": {
+            "key": "infojobs"
+        },
+        "model": "collector.provider",
+        "pk": 1
+    },
+    {
+        "fields": {
+            "key": "spain"
+        },
+        "model": "collector.country",
+        "pk": 1
+    },
+    {
+        "fields": {
+            "country": 1,
+            "key": "p1"
+        },
+        "model": "collector.province",
+        "pk": 1
+    },
+    {
+        "fields": {
+            "country": 1,
+            "key": "p2"
+        },
+        "model": "collector.province",
+        "pk": 2
+    },
+    {
+        "fields": {
+            "country": 1,
+            "key": "p3"
+        },
+        "model": "collector.province",
+        "pk": 3
+    },
+    {
+        "fields": {
+            "country": 1,
+            "key": "p4"
+        },
+        "model": "collector.province",
+        "pk": 4
+    },
+    
+    {
+        "fields": {
+            "key": "o1",
+            "provider": 1,
+            "province": 1,
+            "title": "word1",
+            "vacancies": 3,
+            "applications": 1,
+            "salary_max": 24000,
+            "salary_min": 21000
+        },
+        "model": "collector.offer",
+        "pk": 1
+    },
+    {
+        "fields": {
+            "key": "o2",
+            "provider": 1,
+            "province": 1,
+            "title": "word1",
+            "vacancies": 3,
+            "applications": 1,
+            "salary_max": 24000,
+            "salary_min": 21000
+        },
+        "model": "collector.offer",
+        "pk": 2
+    },
+    {
+        "fields": {
+            "key": "o3",
+            "provider": 1,
+            "province": 1,
+            "title": "word1",
+            "vacancies": 3,
+            "applications": 1,
+            "salary_max": 24000,
+            "salary_min": 21000
+        },
+        "model": "collector.offer",
+        "pk": 3
+    },
+    {
+        "fields": {
+            "key": "o4",
+            "provider": 1,
+            "province": 2,
+            "title": "word2",
+            "vacancies": 2,
+            "applications": 1,
+            "salary_max": 21000,
+            "salary_min": 18000
+        },
+        "model": "collector.offer",
+        "pk": 4
+    },
+    {
+        "fields": {
+            "key": "o5",
+            "provider": 1,
+            "province": 2,
+            "title": "word2",
+            "vacancies": 2,
+            "applications": 1,
+            "salary_max": 21000,
+            "salary_min": 18000
+        },
+        "model": "collector.offer",
+        "pk": 5
+    },
+    {
+        "fields": {
+            "key": "o6",
+            "provider": 1,
+            "province": 2,
+            "title": "word2",
+            "vacancies": 2,
+            "applications": 1,
+            "salary_max": 21000,
+            "salary_min": 18000
+        },
+        "model": "collector.offer",
+        "pk": 6
+    },
+    {
+        "fields": {
+            "key": "o7",
+            "provider": 1,
+            "province": 3,
+            "title": "word3",
+            "vacancies": 1,
+            "applications": 1,
+            "salary_max": 18000,
+            "salary_min": 15000
+        },
+        "model": "collector.offer",
+        "pk": 7
+    },
+    {
+        "fields": {
+            "key": "o8",
+            "provider": 1,
+            "province": 3,
+            "title": "word3",
+            "vacancies": 1,
+            "applications": 1,
+            "salary_max": 18000,
+            "salary_min": 15000
+        },
+        "model": "collector.offer",
+        "pk": 8
+    },
+    {
+        "fields": {
+            "key": "o9",
+            "provider": 1,
+            "province": 3,
+            "title": "word3",
+            "vacancies": 1,
+            "applications": 1,
+            "salary_max": 18000,
+            "salary_min": 15000
+        },
+        "model": "collector.offer",
+        "pk": 9
+    },
+    {
+        "fields": {
+            "key": "o10",
+            "provider": 1,
+            "province": 4,
+            "title": "word4",
+            "vacancies": 4,
+            "applications": 1,
+            "experience_min": 2,
+            "salary_max": 27000,
+            "salary_min": 24000,
+            "fetch_date":   "2016-03-01T00:00:00Z",
+            "publish_date": "2016-03-01T00:00:00Z",
+            "update_date":  "2016-03-01T00:00:00Z"
+        },
+        "model": "collector.offer",
+        "pk": 10
+    }
+]

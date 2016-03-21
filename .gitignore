@@ -5,6 +5,7 @@ lib
 include
 .DS_Store
 .pyc
+.log
 wsgi.py
 db.sqlite3
 dump.rdb

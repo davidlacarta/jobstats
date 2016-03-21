@@ -1,104 +1,118 @@
 {% extends "base.html" %}
-
-{% load staticfiles %}
-
-{% block head %}
-<script src="{% static "angularapp/js/angular.min.js" %}"></script>
-<script src="{% static "angularapp/js/app.js" %}"></script>
-{% endblock %}
-
-{% block content %}
-<section id="content" ng-app="instantsearch" ng-controller="someCtrl">
+{% load humanize %}
+{% block body %}
+<div class="section no-pad-bot" id="index-banner">
     <div class="container">
-        <div class="block-header">
-            <h2>Jobstats</h2>
+        <h1 class="header center">Jobstats</h1>
+        <div class="row center">
+            <h5 class="header col s12 light">{{ offers | intcomma }} ofertas en España</h5>
         </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <div class="search">
-                    <div class="fg-line">
-                        <input type="text" class="form-control" placeholder="Search..." ng-model="keywords" my-enter="search()">
+        <div class="row">
+            <div class="col s12 m6 l6">
+                <div class="card" ng-controller="provinces_ctr">
+                    <div class="card-content">
+                        <span class="card-title activator grey-text text-darken-4">
+                            Provincias 
+                            <a class="btn-flat disabled" ng-if="key_prov">
+                                [[ prov_count | number:0 ]] 
+                            </a>
+                            <i class="material-icons right" ng-click="search()">search</i>
+                            <input id="jobs_prov" value="programador" type="text" ng-model="key_prov" data-role="materialtags"/>
+                        </span>
+                        <div class="progress provinces">
+                            <div class="indeterminate"></div>
+                        </div>
+                        <table ng-if="prov_sal">
+                            <thead>
+                              <tr>
+                                  <th data-field="province">Provincia</th>
+                                  <th data-field="rate">Salario</th>
+                                  <th data-field="rate">Ofertas</th>
+                              </tr>
+                            </thead>
+                            
+                            <tbody>
+                              <tr ng-model="items" ng-repeat="item in prov_sal | limitTo:5">
+                                <td>[[ item[0] ]]</td>
+                                <td>[[ (item[1][0] | number:0) + " €" ]]</td>
+                                <td>[[ item[1][1] ]]</td>
+                              </tr>
+                            </tbody>
+                        </table>
+                        <table ng-if="prov_op">
+                            <thead>
+                              <tr>
+                                  <th data-field="province">Provincia</th>
+                                  <th data-field="rate">Oportunidad</th>
+                                  <th data-field="rate">Ofertas</th>
+                              </tr>
+                            </thead>
+                            
+                            <tbody>
+                              <tr ng-model="items" ng-repeat="item in prov_op | limitTo:5">
+                                <td>[[ item[0] ]]</td>
+                                <td>[[ (item[1][0] * 100 | number:0) + " %" ]]</td>
+                                <td>[[ item[1][1] ]]</td>
+                              </tr>
+                            </tbody>
+                        </table>
                     </div>
                 </div>
             </div>
-            <div id="error" class="card-header" style='display:none;' >
-                No results for "[[ keywords ]]"
-            </div>
-            <div id="items" class="card-body m-t-0" style='display:none;'>
-                <table class="table table-inner table-vmiddle">
-                    <thead>
-                        <tr>
-                        	<th>City</th>
-                            <th>Title</th>
-                            <th>Salary max</th>
-                            <th>applications</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                    	<tr ng-model="items" ng-repeat="item in items">
-                    		<td>[[ item.fields.city ]]</td>
-        					<td class="f-500 c-cyan">[[ item.fields.title | uppercase ]]</td>
-        					<td>[[ item.fields.salary_max ]]</td>
-        					<td class="f-500 c-cyan">[[ item.fields.applications ]]</td>
-        				</tr>
-                    </tbody>
-                </table>
-            </div>
-        </div>
-        
-        <div class="mini-charts" ng-model="summary" ng-if="summary">
-            <div class="row">
-                <div class="col-sm-6 col-md-3">
-                    <div class="mini-charts-item bgm-cyan">
-                        <div class="clearfix">
-                            <div class="chart stats-bar"></div>
-                            <div class="count">
-                                <small>Offers</small>
-                                <h2>[[ summary.count | number:0 ]]</h2>
-                            </div>
+            <div class="col s12 m6 l6">
+                <div class="card" ng-controller="jobs_ctr">
+                    <div class="card-content">
+                        <span class="card-title activator grey-text text-darken-4">
+                            Trabajos
+                            <a class="btn-flat disabled" ng-if="key_jobs">
+                                [[ jobs_count | number:0 ]] 
+                            </a>
+                            <i class="material-icons right" ng-click="search()">search</i>
+                            <input id="jobs_jobs" value="java,camarero" type="text" ng-model="key_jobs" data-role="materialtags"/>
+                            <i class="material-icons prefix tooltipped" data-position="left" data-delay="50" data-tooltip="Provincia">location_on</i>
+                            <input class='dropdown' id="province" value="Madrid" ng-model="province" type="text" />
+                        </span>
+                        <div class="progress jobs">
+                            <div class="indeterminate"></div>
                         </div>
-                    </div>
-                </div>
-                
-                <div class="col-sm-6 col-md-3">
-                    <div class="mini-charts-item bgm-lightgreen">
-                        <div class="clearfix">
-                            <div class="chart stats-bar-2"></div>
-                            <div class="count">
-                                <small>Salary max</small>
-                                <h2>[[ summary.max | number:0 ]]</h2>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="col-sm-6 col-md-3">
-                    <div class="mini-charts-item bgm-orange">
-                        <div class="clearfix">
-                            <div class="chart stats-line"></div>
-                            <div class="count">
-                                <small>Salary averge</small>
-                                <h2>[[ summary.average | number:0 ]]</h2>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="col-sm-6 col-md-3">
-                    <div class="mini-charts-item bgm-bluegray">
-                        <div class="clearfix">
-                            <div class="chart stats-line-2"></div>
-                            <div class="count">
-                                <small>City more offers</small>
-                                <h2>[[ summary.city ]]</h2>
-                            </div>
-                        </div>
+                        <table ng-if="jobs_sal">
+                            <thead>
+                              <tr>
+                                  <th data-field="job">Trabajo</th>
+                                  <th data-field="rate">Salario</th>
+                                  <th data-field="rate">Ofertas</th>
+                              </tr>
+                            </thead>
+                            
+                            <tbody>
+                              <tr ng-model="items" ng-repeat="item in jobs_sal">
+                                <td>[[ item[0] ]]</td>
+                                <td>[[ (item[1][0] | number:0) + " €" ]]</td>
+                                <td>[[ item[1][1] ]]</td>
+                              </tr>
+                            </tbody>
+                        </table>
+                        <table ng-if="jobs_op">
+                            <thead>
+                              <tr>
+                                  <th data-field="job">Trabajo</th>
+                                  <th data-field="rate">Oportunidad</th>
+                                  <th data-field="rate">Ofertas</th>
+                              </tr>
+                            </thead>
+                            
+                            <tbody>
+                              <tr ng-model="items" ng-repeat="item in jobs_op">
+                                <td>[[ item[0] ]]</td>
+                                <td>[[ (item[1][0] * 100 | number:0) + " %" ]]</td>
+                                <td>[[ item[1][1] ]]</td>
+                              </tr>
+                            </tbody>
+                        </table>
                     </div>
                 </div>
             </div>
-            
         </div>
     </div>
-</section>
+</div>
 {% endblock %}

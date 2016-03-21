@@ -1,0 +1,114 @@
+[21/Mar/2016 09:42:46] DEBUG [dashboard.views:83] Regex:word1
+[21/Mar/2016 09:42:46] DEBUG [dashboard.views:83] Regex:word1
+[21/Mar/2016 09:42:46] DEBUG [dashboard.views:83] Regex:word2
+[21/Mar/2016 09:42:46] DEBUG [dashboard.views:83] Regex:word3
+[21/Mar/2016 09:42:46] DEBUG [dashboard.views:83] Regex:word4
+[21/Mar/2016 09:42:46] DEBUG [dashboard.views:83] Regex:word1
+[21/Mar/2016 09:42:46] DEBUG [dashboard.views:83] Regex:word2
+[21/Mar/2016 09:42:46] DEBUG [dashboard.views:83] Regex:word3
+[21/Mar/2016 09:42:46] DEBUG [dashboard.views:83] Regex:word4
+[21/Mar/2016 10:13:28] DEBUG [dashboard.views:83] Regex:programador
+[21/Mar/2016 10:13:30] DEBUG [dashboard.views:83] Regex:programador
+[21/Mar/2016 10:13:39] DEBUG [dashboard.views:83] Regex:programador
+[21/Mar/2016 10:27:14] DEBUG [dashboard.views:83] Regex:java
+[21/Mar/2016 10:27:19] DEBUG [dashboard.views:83] Regex:java
+[21/Mar/2016 10:27:20] DEBUG [dashboard.views:83] Regex:javascript
+[21/Mar/2016 10:27:21] DEBUG [dashboard.views:83] Regex:ruby
+[21/Mar/2016 10:27:22] DEBUG [dashboard.views:83] Regex:python
+[21/Mar/2016 10:27:23] DEBUG [dashboard.views:83] Regex:java
+[21/Mar/2016 10:27:25] DEBUG [dashboard.views:83] Regex:javascript
+[21/Mar/2016 10:27:26] DEBUG [dashboard.views:83] Regex:ruby
+[21/Mar/2016 10:27:27] DEBUG [dashboard.views:83] Regex:python
+[21/Mar/2016 10:41:48] DEBUG [dashboard.views:83] Regex:java
+[21/Mar/2016 10:41:49] DEBUG [dashboard.views:83] Regex:javascript
+[21/Mar/2016 10:41:50] DEBUG [dashboard.views:83] Regex:ruby
+[21/Mar/2016 10:41:51] DEBUG [dashboard.views:83] Regex:python
+[21/Mar/2016 10:41:52] DEBUG [dashboard.views:83] Regex:java
+[21/Mar/2016 10:41:53] DEBUG [dashboard.views:83] Regex:javascript
+[21/Mar/2016 10:41:55] DEBUG [dashboard.views:83] Regex:ruby
+[21/Mar/2016 10:41:56] DEBUG [dashboard.views:83] Regex:python
+[21/Mar/2016 12:12:32] DEBUG [dashboard.views:82] Regex:java
+[21/Mar/2016 12:14:53] DEBUG [dashboard.views:82] Regex:java
+[21/Mar/2016 12:14:53] DEBUG [dashboard.views:82] Regex:javascript
+[21/Mar/2016 12:14:54] DEBUG [dashboard.views:82] Regex:ruby
+[21/Mar/2016 12:14:55] DEBUG [dashboard.views:82] Regex:python
+[21/Mar/2016 12:14:55] DEBUG [dashboard.views:82] Regex:java
+[21/Mar/2016 12:14:56] DEBUG [dashboard.views:82] Regex:javascript
+[21/Mar/2016 12:14:57] DEBUG [dashboard.views:82] Regex:ruby
+[21/Mar/2016 12:14:58] DEBUG [dashboard.views:82] Regex:python
+[21/Mar/2016 12:19:57] DEBUG [dashboard.views:82] Regex:java
+[21/Mar/2016 12:22:09] DEBUG [dashboard.views:82] Regex:java
+[21/Mar/2016 12:22:34] DEBUG [dashboard.views:82] Regex:java
+[21/Mar/2016 12:23:18] DEBUG [dashboard.views:82] Regex:java
+[21/Mar/2016 12:25:33] DEBUG [dashboard.views:82] Regex:java
+[21/Mar/2016 12:27:01] DEBUG [dashboard.views:82] Regex:java
+[21/Mar/2016 12:27:50] DEBUG [dashboard.views:82] Regex:java
+[21/Mar/2016 12:28:59] DEBUG [dashboard.views:82] Regex:java
+[21/Mar/2016 12:29:16] DEBUG [dashboard.views:82] Regex:java
+[21/Mar/2016 12:30:02] DEBUG [dashboard.views:82] Regex:java
+[21/Mar/2016 12:30:03] DEBUG [dashboard.views:82] Regex:java
+[21/Mar/2016 12:30:05] DEBUG [dashboard.views:82] Regex:javascript
+[21/Mar/2016 12:30:07] DEBUG [dashboard.views:82] Regex:ruby
+[21/Mar/2016 12:30:09] DEBUG [dashboard.views:82] Regex:python
+[21/Mar/2016 12:30:10] DEBUG [dashboard.views:82] Regex:java
+[21/Mar/2016 12:30:11] DEBUG [dashboard.views:82] Regex:javascript
+[21/Mar/2016 12:30:12] DEBUG [dashboard.views:82] Regex:ruby
+[21/Mar/2016 12:30:14] DEBUG [dashboard.views:82] Regex:python
+[21/Mar/2016 12:32:13] DEBUG [dashboard.views:82] Regex:java
+[21/Mar/2016 12:32:50] DEBUG [dashboard.views:82] Regex:java
+[21/Mar/2016 12:34:16] DEBUG [dashboard.views:82] Regex:java
+[21/Mar/2016 12:36:31] DEBUG [dashboard.views:82] Regex:java
+[21/Mar/2016 12:37:50] DEBUG [dashboard.views:82] Regex:java
+[21/Mar/2016 12:39:24] DEBUG [dashboard.views:82] Regex:java
+[21/Mar/2016 12:43:20] DEBUG [dashboard.views:82] Regex:java
+[21/Mar/2016 12:43:35] DEBUG [dashboard.views:82] Regex:camarero
+[21/Mar/2016 12:47:35] DEBUG [dashboard.views:82] Regex:java
+[21/Mar/2016 12:47:47] DEBUG [dashboard.views:82] Regex:java
+[21/Mar/2016 12:47:48] DEBUG [dashboard.views:82] Regex:javascript
+[21/Mar/2016 12:47:49] DEBUG [dashboard.views:82] Regex:ruby
+[21/Mar/2016 12:47:50] DEBUG [dashboard.views:82] Regex:python
+[21/Mar/2016 12:47:51] DEBUG [dashboard.views:82] Regex:java
+[21/Mar/2016 12:47:52] DEBUG [dashboard.views:82] Regex:javascript
+[21/Mar/2016 12:47:54] DEBUG [dashboard.views:82] Regex:ruby
+[21/Mar/2016 12:47:55] DEBUG [dashboard.views:82] Regex:python
+[21/Mar/2016 12:52:22] DEBUG [dashboard.views:82] Regex:programador
+[21/Mar/2016 12:52:23] DEBUG [dashboard.views:82] Regex:java
+[21/Mar/2016 12:52:24] DEBUG [dashboard.views:82] Regex:camarero
+[21/Mar/2016 12:52:25] DEBUG [dashboard.views:82] Regex:java
+[21/Mar/2016 12:52:27] DEBUG [dashboard.views:82] Regex:camarero
+[21/Mar/2016 12:55:51] DEBUG [dashboard.views:82] Regex:programador
+[21/Mar/2016 12:56:05] DEBUG [dashboard.views:82] Regex:programador
+[21/Mar/2016 12:57:27] DEBUG [dashboard.views:82] Regex:programador
+[21/Mar/2016 12:58:29] DEBUG [dashboard.views:82] Regex:programador
+[21/Mar/2016 13:02:41] DEBUG [dashboard.views:82] Regex:programador
+[21/Mar/2016 13:02:42] DEBUG [dashboard.views:82] Regex:java
+[21/Mar/2016 13:02:44] DEBUG [dashboard.views:82] Regex:camarero
+[21/Mar/2016 13:02:45] DEBUG [dashboard.views:82] Regex:java
+[21/Mar/2016 13:02:48] DEBUG [dashboard.views:82] Regex:camarero
+[21/Mar/2016 13:06:12] DEBUG [dashboard.views:82] Regex:java
+[21/Mar/2016 13:09:21] DEBUG [dashboard.views:82] Regex:administrativo
+[21/Mar/2016 13:10:00] DEBUG [dashboard.views:82] Regex:fiscal
+[21/Mar/2016 13:10:17] DEBUG [dashboard.views:82] Regex:java
+[21/Mar/2016 13:10:17] DEBUG [dashboard.views:82] Regex:fiscal
+[21/Mar/2016 13:10:18] DEBUG [dashboard.views:82] Regex:java
+[21/Mar/2016 13:10:19] DEBUG [dashboard.views:82] Regex:fiscal
+[21/Mar/2016 13:13:29] DEBUG [dashboard.views:82] Regex:java
+[21/Mar/2016 13:13:30] DEBUG [dashboard.views:82] Regex:java
+[21/Mar/2016 13:18:02] DEBUG [dashboard.views:63] Keys: programador
+[21/Mar/2016 13:18:19] DEBUG [dashboard.views:63] Keys: ALL
+[21/Mar/2016 13:45:27] DEBUG [dashboard.views:63] Keys: programador
+[21/Mar/2016 13:45:38] DEBUG [dashboard.views:57] Keys: java,camarero, province: Madrid
+[21/Mar/2016 13:57:29] DEBUG [dashboard.views:63] Keys: programador
+[21/Mar/2016 13:58:22] DEBUG [dashboard.views:57] Keys: java, province: Madrid
+[21/Mar/2016 13:58:34] DEBUG [dashboard.views:63] Keys: ingeniero electronico
+[21/Mar/2016 13:58:42] DEBUG [dashboard.views:63] Keys: ALL
+[21/Mar/2016 13:58:50] DEBUG [dashboard.views:63] Keys: electronico
+[21/Mar/2016 13:58:56] DEBUG [dashboard.views:63] Keys: ALL
+[21/Mar/2016 13:59:27] DEBUG [dashboard.views:57] Keys: Ingenieros, province: Madrid
+[21/Mar/2016 13:59:53] DEBUG [dashboard.views:57] Keys: Ferroviario, province: Madrid
+[21/Mar/2016 14:02:10] DEBUG [dashboard.views:57] Keys: java,camarero, province: Madrid
+[21/Mar/2016 14:03:38] DEBUG [dashboard.views:63] Keys: Ferroviario
+[21/Mar/2016 14:04:21] DEBUG [dashboard.views:57] Keys: java,camarero,Ingeniero, province: Madrid
+[21/Mar/2016 14:05:00] DEBUG [dashboard.views:57] Keys: java,camarero,Ingeniero,Mantenimiento, province: Madrid
+[21/Mar/2016 14:05:34] DEBUG [dashboard.views:57] Keys: java,ingeniero,mantenimiento,ferroviario, province: Madrid
+[21/Mar/2016 14:12:16] DEBUG [dashboard.views:57] Keys: electricista,peluquero,programador, province: Madrid
