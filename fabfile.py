@@ -1,5 +1,6 @@
 from fabric.api import local
 
+# fab push
 def push():
     'Local push to the repository.'
     local('git add .')
