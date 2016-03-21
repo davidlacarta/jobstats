@@ -114,3 +114,29 @@
 [21/Mar/2016 14:12:16] DEBUG [dashboard.views:57] Keys: electricista,peluquero,programador, province: Madrid
 [21/Mar/2016 14:42:35] DEBUG [dashboard.views:63] Keys: programador
 [21/Mar/2016 14:42:37] DEBUG [dashboard.views:57] Keys: java,camarero, province: Madrid
+[21/Mar/2016 16:02:13] DEBUG [dashboard.views:57] Keys: java,hardware, province: Madrid
+[21/Mar/2016 16:02:33] DEBUG [dashboard.views:57] Keys: java,hardware, province: Illes Balears
+[21/Mar/2016 16:02:58] DEBUG [dashboard.views:63] Keys: java
+[21/Mar/2016 16:04:58] DEBUG [dashboard.views:63] Keys: programador
+[21/Mar/2016 16:05:00] DEBUG [dashboard.views:57] Keys: java,camarero, province: Madrid
+[21/Mar/2016 18:13:18] DEBUG [dashboard.views:63] Keys: project manager
+[21/Mar/2016 18:14:16] DEBUG [dashboard.views:57] Keys: project manager,analista programador,programador senior,programador junior, province: Madrid
+[21/Mar/2016 18:18:51] DEBUG [dashboard.views:57] Keys: project manager,analista programador,programador senior,programador junior,arquitecto java, province: Madrid
+[21/Mar/2016 18:21:24] DEBUG [dashboard.views:57] Keys: project manager,analista programador,programador senior,programador junior,arquitecto java, province: Illes Balears
+[21/Mar/2016 18:41:19] DEBUG [dashboard.views:63] Keys: programador
+[21/Mar/2016 18:41:30] DEBUG [dashboard.views:57] Keys: java,camarero, province: Madrid
+[21/Mar/2016 18:42:07] DEBUG [dashboard.views:63] Keys: ALL
+[21/Mar/2016 18:42:13] DEBUG [dashboard.views:57] Keys: java, province: Madrid
+[21/Mar/2016 18:46:46] DEBUG [dashboard.views:63] Keys: programador
+[21/Mar/2016 18:46:46] DEBUG [dashboard.views:57] Keys: java,camarero, province: Madrid
+[21/Mar/2016 18:49:19] DEBUG [dashboard.views:57] Keys: programador, province: Madrid
+[21/Mar/2016 18:49:32] DEBUG [dashboard.views:57] Keys: programador, province: Ciudad Real
+[21/Mar/2016 18:49:51] DEBUG [dashboard.views:57] Keys: programador, province: Ourense
+[21/Mar/2016 18:50:07] DEBUG [dashboard.views:57] Keys: programador, province: Soria
+[21/Mar/2016 18:51:32] DEBUG [dashboard.views:57] Keys: forestal,ingeniero forestal,ingeniero de montes, province: Madrid
+[21/Mar/2016 18:53:15] DEBUG [dashboard.views:63] Keys: forestal,ingeniero forestal,ingeniero de montes
+[21/Mar/2016 18:54:58] DEBUG [dashboard.views:57] Keys: forestal,java,php, province: Madrid
+[21/Mar/2016 19:04:23] DEBUG [dashboard.views:63] Keys: programador
+[21/Mar/2016 20:08:27] DEBUG [dashboard.views:57] Keys: java,camarero, province: Madrid
+[21/Mar/2016 20:08:28] DEBUG [dashboard.views:63] Keys: programador
+[21/Mar/2016 20:08:49] DEBUG [dashboard.views:63] Keys: ALL
