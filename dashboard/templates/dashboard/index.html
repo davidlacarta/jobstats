@@ -1,18 +1,27 @@
 {% extends "base.html" %}
+{% load i18n %}
 {% load humanize %}
 {% block body %}
+
+{% trans "province" as province %}
+{% trans "job" as job %}
+{% trans "offer" as offer %}
+{% trans "oportunity" as oportunity %}
+{% trans "salary" as salary %}
+{% trans "offers in Spain" as header_title %}
+
 <div class="section no-pad-bot" id="index-banner">
     <div class="container">
         <h1 class="header center">Jobstats</h1>
         <div class="row center">
-            <h5 class="header col s12 light">{{ offers | intcomma }} ofertas en España</h5>
+            <h5 class="header col s12 light">{{ offers | intcomma }} {{ header_title }}</h5>
         </div>
         <div class="row">
             <div class="col s12 m6 l6">
                 <div class="card" ng-controller="provinces_ctr">
                     <div class="card-content">
                         <span class="card-title activator grey-text text-darken-4">
-                            Provincias 
+                            {{ province | title }}s
                             <a class="btn-flat disabled" ng-if="key_prov">
                                 [[ prov_count | number:0 ]] 
                             </a>
@@ -25,9 +34,9 @@
                         <table ng-if="prov_sal">
                             <thead>
                               <tr>
-                                  <th data-field="province">Provincia</th>
-                                  <th data-field="rate">Salario</th>
-                                  <th data-field="rate">Ofertas</th>
+                                  <th data-field="province">{{ province | title }}</th>
+                                  <th data-field="rate">{{ salary | title }}</th>
+                                  <th data-field="rate">{{ offer | title }}s</th>
                               </tr>
                             </thead>
                             
@@ -42,9 +51,9 @@
                         <table ng-if="prov_op">
                             <thead>
                               <tr>
-                                  <th data-field="province">Provincia</th>
-                                  <th data-field="rate">Oportunidad</th>
-                                  <th data-field="rate">Ofertas</th>
+                                  <th data-field="province">{{ province | title }}</th>
+                                  <th data-field="rate">{{ oportunity | title }}</th>
+                                  <th data-field="rate">{{ offer | title }}s</th>
                               </tr>
                             </thead>
                             
@@ -63,7 +72,7 @@
                 <div class="card" ng-controller="jobs_ctr">
                     <div class="card-content">
                         <span class="card-title activator grey-text text-darken-4">
-                            Trabajos
+                            {{ job | title }}s
                             <a class="btn-flat disabled" ng-if="key_jobs">
                                 [[ jobs_count | number:0 ]] 
                             </a>
@@ -78,9 +87,9 @@
                         <table ng-if="jobs_sal">
                             <thead>
                               <tr>
-                                  <th data-field="job">Trabajo</th>
-                                  <th data-field="rate">Salario</th>
-                                  <th data-field="rate">Ofertas</th>
+                                  <th data-field="job">{{ job | title }}s</th>
+                                  <th data-field="rate">{{ salary | title }}</th>
+                                  <th data-field="rate">{{ offer | title }}s</th>
                               </tr>
                             </thead>
                             
@@ -95,9 +104,9 @@
                         <table ng-if="jobs_op">
                             <thead>
                               <tr>
-                                  <th data-field="job">Trabajo</th>
-                                  <th data-field="rate">Oportunidad</th>
-                                  <th data-field="rate">Ofertas</th>
+                                  <th data-field="job">{{ job | title }}s</th>
+                                  <th data-field="rate">{{ oportunity | title }}</th>
+                                  <th data-field="rate">{{ offer | title }}s</th>
                               </tr>
                             </thead>
                             

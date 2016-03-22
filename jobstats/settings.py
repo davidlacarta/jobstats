@@ -14,15 +14,13 @@ https://docs.djangoproject.com/en/1.8/ref/settings/
 import os
 import dj_database_url
 import djcelery
+from django.utils.translation import ugettext_lazy as _
 
 djcelery.setup_loader()
 
 JOBSTATS = os.path.dirname(os.path.abspath(__file__))
 BASE_DIR = os.path.dirname(JOBSTATS)
 
-
-# Quick-start development settings - unsuitable for production
-# See https://docs.djangoproject.com/en/1.8/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = 'v1us&n$3p2itiqxd$)s^r(-ea=!n#%bqz8br_mebnph6vb#5tv'
@@ -41,6 +39,7 @@ SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 INSTALLED_APPS = (
     #'material',
     #'material.admin',
+    'translation_manager',
     'django.contrib.humanize',
     'django.contrib.admin',
     'django.contrib.auth',
@@ -54,7 +53,9 @@ INSTALLED_APPS = (
 )
 
 MIDDLEWARE_CLASSES = (
+    'django.middleware.cache.UpdateCacheMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    'django.middleware.locale.LocaleMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -62,6 +63,7 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'django.middleware.security.SecurityMiddleware',
+    'django.middleware.cache.FetchFromCacheMiddleware',
 )
 
 ROOT_URLCONF = 'jobstats.urls'
@@ -97,19 +99,43 @@ DATABASES['default'] =  dj_database_url.config()
 # Internationalization
 # https://docs.djangoproject.com/en/1.8/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'es'
 
 TIME_ZONE = 'Europe/Madrid'
-
 USE_I18N = True
-
 USE_L10N = True
-
 USE_TZ = True
 
+LANGUAGES = (
+    ('en', _('English')),
+    ('es', _('Spanish')),
+)
 
-# Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/1.8/howto/static-files/
+# Required paths to all locale dirs
+# LOCALE_PATHS = [
+#     '/foo/bar/locale',
+#     '/foo/foo/bar/locale',
+# ]
+LOCALE_PATHS = [os.path.join(BASE_DIR, 'locale'),]
+
+# Path to project basedir / workdir - root folder of project
+# TRANSLATIONS_BASE_DIR = '/foo/bar'
+TRANSLATIONS_BASE_DIR = BASE_DIR
+
+# Language to display in hint column to help translators
+# see translation of string in another language
+# TRANSLATIONS_HINT_LANGUAGE = 'foo'
+TRANSLATIONS_HINT_LANGUAGE = BASE_DIR
+
+LOCALE_DIR = os.path.join(BASE_DIR, 'locale')
+if not os.path.exists(LOCALE_DIR):
+    os.makedirs(LOCALE_DIR)
+    
+for lang in LANGUAGES:
+    LOCALE_LANG_DIR = os.path.join(LOCALE_DIR, lang[0], 'LC_MESSAGES')
+    if not os.path.exists(LOCALE_LANG_DIR):
+        os.makedirs(LOCALE_LANG_DIR)
+
 
 STATIC_URL = '/static/'
 STATIC_ROOT = 'staticfiles'
@@ -188,6 +214,17 @@ LOGGING = {
             'handlers': ['file_dashboard'],
             'level': LOGGING_LEVEL,
         },
+    }
+}
+
+CACHES = {
+    "default": {
+        "BACKEND": "django_redis.cache.RedisCache",
+        "LOCATION": os.environ.get('REDIS_URL'),
+        "OPTIONS": {
+            "CLIENT_CLASS": "django_redis.client.DefaultClient",
+            'IGNORE_EXCEPTIONS': True,
+        }
     }
 }
 

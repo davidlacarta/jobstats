@@ -12,6 +12,8 @@ from django.utils import timezone
 from django.db.models import Q
 from django.db.models import F
 from fractions import Fraction
+from django.views.decorators.cache import cache_page
+from django.core.cache import cache
 import logging
 
 logger = logging.getLogger(__name__)
@@ -29,6 +31,7 @@ PROVINCE = 'Illes Balears'
 #############################################
 # index.html
 #############################################
+@cache_page(60 * 15)
 def index(request):
     offers = Offer.objects.filter(country__key="Espa\xc3\xb1a").count()
     return render(request, 'index.html', {'offers': offers})
@@ -50,23 +53,35 @@ def search(request):
         search = request.GET['search'].encode("utf-8") if 'search' in request.GET else ''
         province = request.GET['province'].encode("utf-8") if 'province' in request.GET else ''
         
+        if province and not search:
+            return JsonResponse({})
+            
+        if not search:
+            search = 'ALL'
+            
+        cache_result = cache.get(search + province, '')
+        if cache_result:
+            return JsonResponse(cache_result)
+            
         o_spain = Offer.objects.filter(country__key="Espa\xc3\xb1a")
         o_clean = filter_date(o_spain)
         
-        if search and province:
+        response = {}
+        if province:
             logger.debug('Keys: {}, province: {}'.format(search, province))
             offers_province = filter_provinces(o_clean, province)
             jobs_sal = get_regex_by_salary(offers_province, search)
             jobs_op = get_regex_by_oportunity(offers_province, search)
-            return JsonResponse({'jobs_count': offers_province.count(), 'jobs_op': jobs_op, 'jobs_sal': jobs_sal})
+            response = {'jobs_count': offers_province.count(), 'jobs_op': jobs_op, 'jobs_sal': jobs_sal}
         else:
-            logger.debug('Keys: {}'.format(search if search else 'ALL'))
+            logger.debug('Keys: {}'.format(search))
             o_regex = filter_regex(o_clean, search) if search else o_clean
             prov_sal = get_provinces_by_salary(o_regex)
             prov_op = get_provinces_by_oportunity(o_regex)
-            return JsonResponse({'prov_count': o_regex.count(), 'prov_op': prov_op, 'prov_sal': prov_sal})
+            response = {'prov_count': o_regex.count(), 'prov_op': prov_op, 'prov_sal': prov_sal}
                 
-    return JsonResponse({})
+        cache.set(search + province, response)
+        return JsonResponse(response)
 
 #############################################
 # FILTERS

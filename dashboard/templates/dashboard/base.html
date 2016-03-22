@@ -7,16 +7,21 @@
       <link rel="stylesheet" href="{% static "dashboard/materialize/css/materialize-tags.css" %}">
       <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     </head>
-    <body ng-app="jobstats_app">
+    <style>
+    [ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+      display: none !important;
+    }
+    </style>
+    <body ng-app="jobstats_app" ng-cloak>
         <nav>
-          <div class="nav-wrapper">
+          <div class="nav-wrapper teal lighten-2">
             <a href="/" class="brand-logo center">Jobstats</a>
           </div>
         </nav>
         <main>
         {% block body %}{% endblock %}
         </main>
-        <footer class="page-footer">
+        <footer class="page-footer teal lighten-2">
           <div class="container">
             <div class="row">
               <div class="col l6 s12">

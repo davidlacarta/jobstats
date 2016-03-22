@@ -83,20 +83,3 @@
   .twitter-typeahead .tt-menu .tt-suggestion {
     line-height: 2.1rem !important;
     padding: 2px 10px !important; }
-  .twitter-typeahead .tt-menu .tt-highlight {
-    /*background: gray;*/
-    /*color: #ffffff;*/ }
-      
-  
-  /*<div class="tt-menu" style="position: absolute; top: 100%; left: 0px; z-index: 100; display: none;">
-    <div class="tt-dataset tt-dataset-provinces">
-      <div class="tt-suggestion tt-selectable">
-        <strong class="tt-highlight">M</strong>adrid</div>
-      <div class="tt-suggestion tt-selectable">
-        <strong class="tt-highlight">M</strong>elilla</div>
-      <div class="tt-suggestion tt-selectable">
-        <strong class="tt-highlight">M</strong>urcia</div>
-      <div class="tt-suggestion tt-selectable">
-        <strong class="tt-highlight">M</strong>álaga</div>
-      </div>
-    </div>*/
