@@ -6,6 +6,7 @@ include
 .DS_Store
 .pyc
 .log
+logs/
 wsgi.py
 db.sqlite3
 dump.rdb

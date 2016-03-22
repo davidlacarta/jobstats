@@ -47,18 +47,18 @@ def provinces(request):
 #############################################
 def search(request):
     if request.is_ajax() and request.method == 'GET':
-        search = request.GET['search'] if 'search' in request.GET else ''
-        province = request.GET['province'] if 'province' in request.GET else ''
+        search = request.GET['search'].encode("utf-8") if 'search' in request.GET else ''
+        province = request.GET['province'].encode("utf-8") if 'province' in request.GET else ''
         
         o_spain = Offer.objects.filter(country__key="Espa\xc3\xb1a")
         o_clean = filter_date(o_spain)
         
         if search and province:
-                logger.debug('Keys: {}, province: {}'.format(search, province))
-                offers_province = filter_provinces(o_clean, province)
-                jobs_sal = get_regex_by_salary(offers_province, search)
-                jobs_op = get_regex_by_oportunity(offers_province, search)
-                return JsonResponse({'jobs_count': offers_province.count(), 'jobs_op': jobs_op, 'jobs_sal': jobs_sal})
+            logger.debug('Keys: {}, province: {}'.format(search, province))
+            offers_province = filter_provinces(o_clean, province)
+            jobs_sal = get_regex_by_salary(offers_province, search)
+            jobs_op = get_regex_by_oportunity(offers_province, search)
+            return JsonResponse({'jobs_count': offers_province.count(), 'jobs_op': jobs_op, 'jobs_sal': jobs_sal})
         else:
             logger.debug('Keys: {}'.format(search if search else 'ALL'))
             o_regex = filter_regex(o_clean, search) if search else o_clean
