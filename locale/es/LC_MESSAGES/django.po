@@ -3,8 +3,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 0.1\n"
 "Report-Msgid-Bugs-To: webmaster@localhost\n"
-"POT-Creation-Date: 2016-03-22 16:41:38\n"
-"PO-Revision-Date: 2016-03-22 16:41:38\n"
+"POT-Creation-Date: 2016-03-23 11:33:00\n"
+"PO-Revision-Date: 2016-03-23 11:33:00\n"
 "Last-Translator: Server <root@localhost>\n"
 "Language-Team: English <webmaster@localhost>\n"
 "MIME-Version: 1.0\n"
@@ -14,6 +14,10 @@ msgstr ""
 #: dashboard/templates/dashboard/index.html:7
 msgid "job"
 msgstr "trabajo"
+
+#: dashboard/templates/dashboard/index.html:12
+msgid "minimum experience"
+msgstr "experiencia mínima"
 
 #: dashboard/templates/dashboard/index.html:8
 msgid "offer"
@@ -34,3 +38,7 @@ msgstr "provincia"
 #: dashboard/templates/dashboard/index.html:10
 msgid "salary"
 msgstr "salario"
+
+#: dashboard/templates/dashboard/index.html:13
+msgid "year"
+msgstr "año"

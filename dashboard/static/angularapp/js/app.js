@@ -9,12 +9,45 @@ app.config(function ($interpolateProvider, $httpProvider) {
     $httpProvider.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 });
 
-app.controller('provinces_ctr',function($scope,$http){
+app.controller('jobstats_ctr',function($scope,$http){
     $scope.key_prov = "programador";
-    $scope.search = function(){
+    $scope.key_jobs = "java,camarero";
+    $scope.province = "Madrid";
+    
+    var slider = document.getElementById('experience');
+    noUiSlider.create(slider, {
+       start: [0, 10],
+       connect: true,
+       step: 1,
+       range: {
+         'min': 0,
+         'max': 10
+       },
+       format: wNumb({
+         decimals: 0
+       })
+    });
+      
+    slider.noUiSlider.on('update', function( values, handle ) {
+        if (handle) {
+            $scope.exp_max = values[handle];
+        } else {
+            $scope.exp_min = values[handle];
+        }
+        if(!$scope.$$phase) {
+            $scope.$apply();
+        }
+    });
+    
+    $scope.searchprov = function(){
         $('#jobs_prov').trigger('input');
         $('.progress.provinces').show()
-        $http.get('/search', { params: { search : $scope.key_prov }})
+        $http.get('/search', { 
+            params: { 
+                search : $scope.key_prov, 
+                exp_min: $scope.exp_min,
+                exp_max: $scope.exp_max
+            }})
             .success(function(response){
                 $scope.prov_sal = angular.fromJson(response.prov_sal);
                 $scope.prov_op = angular.fromJson(response.prov_op);
@@ -25,16 +58,18 @@ app.controller('provinces_ctr',function($scope,$http){
                 console.log(response)
             });
     };
-});
-
-app.controller('jobs_ctr',function($scope,$http){
-    $scope.key_jobs = "java,camarero";
-    $scope.province = "Madrid";
-    $scope.search = function(){
+    
+    $scope.searchjobs = function(){
         $('#jobs_jobs').trigger('input');
         $('#province').trigger('input');
         $('.progress.jobs').show()
-        $http.get('/search', { params: { search : $scope.key_jobs, province : $scope.province }})
+        $http.get('/search', { 
+            params: { 
+                search : $scope.key_jobs, 
+                province : $scope.province, 
+                exp_min: $scope.exp_min,
+                exp_max: $scope.exp_max
+            }})
             .success(function(response){
                 $scope.jobs_sal = angular.fromJson(response.jobs_sal);
                 $scope.jobs_op = angular.fromJson(response.jobs_op);

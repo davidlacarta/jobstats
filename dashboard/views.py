@@ -58,13 +58,25 @@ def search(request):
             
         if not search:
             search = 'ALL'
+        
+        exp_min = request.GET['exp_min'] if 'exp_min' in request.GET else ''
+        exp_max = request.GET['exp_max'] if 'exp_max' in request.GET else ''
             
-        cache_result = cache.get(search + province, '')
+        cache_result = cache.get('{}:{}:{}:{}'.format(search, province, exp_min, exp_max), '')
         if cache_result:
             return JsonResponse(cache_result)
             
         o_spain = Offer.objects.filter(country__key="Espa\xc3\xb1a")
         o_clean = filter_date(o_spain)
+        
+        if exp_min and exp_max:
+            try:
+                exp_min= int(exp_min)
+                exp_max= int(exp_max)
+                if exp_min > 0 or exp_max < 10:
+                    o_clean = filter_experience(o_clean, exp_min, exp_max)
+            except Exception:
+                pass
         
         response = {}
         if province:
@@ -80,7 +92,7 @@ def search(request):
             prov_op = get_provinces_by_oportunity(o_regex)
             response = {'prov_count': o_regex.count(), 'prov_op': prov_op, 'prov_sal': prov_sal}
                 
-        cache.set(search + province, response)
+        cache.set('{}:{}:{}:{}'.format(search, province, exp_min, exp_max), response)
         return JsonResponse(response)
 
 #############################################
@@ -91,7 +103,7 @@ def filter_date(offers, days_min=DAYS_MIN, days_max=DAYS_MAX, date=timezone.now(
     from_date = date - timedelta(days=days_max)
     return offers.filter(publish_date__range=(from_date, to_date))
     
-def filter_experience(offers, exp_min=EXPERIENCE_MIN, exp_max=EXPERIENCE_MAX):
+def filter_experience(offers, exp_min=EXPERIENCE_MIN, exp_max =EXPERIENCE_MAX):
     return offers.filter(experience_min__gte=exp_min, experience_min__lte=exp_max)
     
 def filter_regex(offers, keys=JOBS, only_title=True):

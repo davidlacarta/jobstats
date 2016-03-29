@@ -35,7 +35,7 @@ class DashBoardTestcase(TestCase):
     	self.assertEqual(200, response.status_code)
     	
     def test_filter_experience(self):
-        s = filter_experience(self.offers, 1, 3)
+        s = filter_experience(self.offers, 1, 5)
         self.assertEqual(1, s.count())
         
     def test_filter_regex(self):
